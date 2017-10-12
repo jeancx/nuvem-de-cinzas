@@ -1,0 +1,41 @@
+/* app css stylesheet */
+
+.navbar-brand img {
+    width: 20px;
+}
+
+.scene {
+    width: 100%;
+}
+
+.scene table {
+    width: auto;
+    margin: 0 auto;
+    text-align: center;
+}
+
+td {
+    width: 60px;
+    height: 60px;
+    padding: 5px;
+}
+
+td img {
+    max-width: 50px;
+}
+
+td img.active {
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+.days {
+    margin-top: 15px;
+}
+
+label img {
+    max-width: 50px;
+}
+
+.radio-inline + .radio-inline {
+    margin-left: 30px !important;
+}

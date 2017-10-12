@@ -1,0 +1,23 @@
+<div class="modal-header"><h4 class="modal-title"><i class="fa fa-cloud" aria-hidden="true"></i> Novo Cenário</h4>
+</div>
+<div class="modal-body">
+    <ng-form name="typeDialog" novalidate role="form">
+        <div class="form-group input-group-lg text-center">
+            <label class="radio-inline"><input type="radio" name="type" ng-model="model.type" value=".">
+                Vazio
+            </label>
+            <label class="radio-inline"><input type="radio" name="type" ng-model="model.type" value="*">
+                Nuvem <img src="images/cloud.png">
+            </label>
+            <label class="radio-inline"><input type="radio" name="type" ng-model="model.type" value="A">
+                Aeroporto <img src="images/airport.png">
+            </label>
+        </div>
+    </ng-form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+    <button type="button" class="btn btn-primary" ng-click="save()"
+            ng-disabled="typeDialog.$invalid">Confirmar
+    </button>
+</div>
