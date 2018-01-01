@@ -7,10 +7,10 @@ angular.module('app', [
     'ngAnimate',
     'ngSanitize',
     'ui.bootstrap',
-    'dialogs.main'
-])
-    .config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
-        $locationProvider.hashPrefix('!');
+    'dialogs.main',
+    'app.main.dialogs'
+]).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
+    $locationProvider.hashPrefix('!');
 
-        $routeProvider.otherwise({redirectTo: '/main'});
-    }]);
+    $routeProvider.otherwise({redirectTo: '/main'});
+}]);
