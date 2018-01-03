@@ -44,8 +44,8 @@ angular.module('app.main', ['ngRoute'])
       };
 
       fn.expandCloud = function (day, line, col) {
-        var nLines = data.scenes[day].length;
-        var nCols = data.scenes[day][0].length;
+        var numberOfLines = data.scenes[day].length;
+        var numberOfCols = data.scenes[day][0].length;
         //left
         if (col - 1 >= 0) {
           if (data.scenes[day][line][col - 1] === 'A') {
@@ -56,7 +56,7 @@ angular.module('app.main', ['ngRoute'])
           }
         }
         //right
-        if (col + 1 < nCols) {
+        if (col + 1 < numberOfCols) {
           if (data.scenes[day][line][col + 1] === 'A') {
             data.scenes[day][line][col + 1] = '*A';
           }
@@ -74,7 +74,7 @@ angular.module('app.main', ['ngRoute'])
           }
         }
         //up
-        if (line + 1 < nLines) {
+        if (line + 1 < numberOfLines) {
           if (data.scenes[day][line + 1][col] === 'A') {
             data.scenes[day][line + 1][col] = '*A';
           }
@@ -131,9 +131,13 @@ angular.module('app.main', ['ngRoute'])
 
 
       fn.newScene = function () {
-        var nLines = data.scenes[0].length;
-        var nCols = data.scenes[0][0].length;
-        var dlg = dialogs.create('main/dialogs/new_scene_dialog.html', 'newSceneDialogCtrl', {rows: nLines, cols: nCols}, 'lg');
+        var col = 0, line = 0;
+        var numberOfLines = data.scenes[line].length;
+        var numberOfCols = data.scenes[line][col].length;
+        var dlg = dialogs.create('main/dialogs/new_scene_dialog.html', 'newSceneDialogCtrl', {
+          rows: numberOfLines,
+          cols: numberOfCols
+        }, 'lg');
         dlg.result.then(function (res) {
           fn.cleanScene(res.rows, res.cols);
         });
@@ -150,18 +154,18 @@ angular.module('app.main', ['ngRoute'])
         }
       };
 
-      fn.cleanScene = function (nLines, nCols) {
-        if (!nLines) {
-          nLines = data.scenes[0].length;
+      fn.cleanScene = function (numberOfLines, numberOfCols) {
+        if (!numberOfLines) {
+          numberOfLines = data.scenes[0].length;
         }
-        if (!nCols) {
-          nCols = data.scenes[0][0].length;
+        if (!numberOfCols) {
+          numberOfCols = data.scenes[0][0].length;
         }
         data.scenes = [];
         data.scenes.push([]);
-        for (var l = 0; l < nLines; l++) {
+        for (var l = 0; l < numberOfLines; l++) {
           data.scenes[0].push([]);
-          for (var c = 0; c < nCols; c++) {
+          for (var c = 0; c < numberOfCols; c++) {
             data.scenes[0][l].push('.');
           }
         }
